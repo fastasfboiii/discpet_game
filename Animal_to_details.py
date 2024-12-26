@@ -125,3 +125,5 @@ def num_of_rarities():
 
 
 num_of_rarities() 
+
+
