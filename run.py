@@ -143,4 +143,4 @@ async def on_message(message):
 
 
 print("client running, open discord ...")
-client.run('MTA4NDQ1NDczMjEyODU5NjA5OQ.GOi386.dboDX_2CkdPp1BT2fKNadd87WkU3pzgNyIH_Ng')
+client.run('MTMyMTgzMDUwNzY4Nzk2ODg5MA.GmRF2W.VzPSM3pJ-LIrscT9OqWQkYwx81wBstSfoBkXPg')
