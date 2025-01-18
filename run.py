@@ -4,7 +4,8 @@ import discord
 from pets import all_pets
 import pickle
 import os
-from users import part_time
+from users import *
+import users
 
 
 current_pets = {}
@@ -122,6 +123,7 @@ async def Call (msg):
         
 
 intents = discord.Intents.all()
+
 client = discord.Client(intents=intents)
 
 
