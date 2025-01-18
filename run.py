@@ -6,7 +6,11 @@ import pickle
 import os
 from users import *
 import users
+import asyncio
+import os
 
+if __name__ == "__main__" and hasattr(asyncio, 'WindowsSelectorEventLoopPolicy'):
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 current_pets = {}
 all_user = {}
@@ -122,8 +126,10 @@ async def Call (msg):
         
         
 
-intents = discord.Intents.all()
-
+# intents = discord.Intents.all()
+intents = discord.Intents.default()
+intents.message_content = True  # Enable message content intent
+intents.members = True    
 client = discord.Client(intents=intents)
 
 
