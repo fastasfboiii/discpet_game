@@ -12,7 +12,7 @@ class User:
             return "Bitch you'r broke how can you buy something when you're that broke HAHAHAHA",x
         else:
             x = 0
-            if user_id == 310429717893349378 or user_id == 997896073270018128:
+            if user_id == 310429717893349378 or user_id == 997896073270018128 or user_id == 377158352733732864:
                 self.bal = self.bal+50
             self.bal = self.bal-50
             print (self.bal)
