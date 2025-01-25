@@ -1,5 +1,27 @@
 import random
 
+# def choose_pet (user_input):
+#     if user_input.lower() in AnimalsToDetails:
+#         return AnimalsToDetails[user_input.lower()]
+#     else:
+#         print("Invalid pet name")
+#         return None
+    
+# def roll_for_pet():
+#     if
+
+
+#     # common_pets = [pet for pet, details in AnimalsToDetails.items() if details[0] == "common"]
+#     # rare_pets = [pet for pet, details in AnimalsToDetails.items() if details[0] == "rare"]
+#     # very_rare_pets = [pet for pet, details in AnimalsToDetails.items() if details[0] == "very rare"]
+    
+#     all_non_legendary_pets = common_pets + rare_pets + very_rare_pets
+#     return random.choice(all_non_legendary_pets)
+
+# def rando_marry_gen():
+#     all_pets = list(AnimalsToDetails.keys())
+#     return random.choice(all_pets)
+
 listOfAbilities = [
     # for now this is all i can think of but later i can just add more
     "part time jobs give 5% more points", 
