@@ -15,7 +15,9 @@ if __name__ == "__main__" and hasattr(asyncio, 'WindowsSelectorEventLoopPolicy')
 current_pets = {}
 all_user = {}
 
-
+    
+   
+    
 if 'data_base.bb' in os.listdir ('./'):
     file_open = open("data_base.bb", "rb")
     current_pets = pickle.load(file_open)
@@ -32,6 +34,19 @@ REMEMBER you can't give two pet's the same name. be createive you mo**** f*****.
 def pet_name_create (msg):
     name = msg.content.split(' ')[-1]
     return name
+
+
+
+def check_input(input_string):
+    parts = input_string.split()
+    if len(parts) == 5 and parts[0] == "!pet" and parts[1] == "create":
+        return True
+    else:
+        return False
+
+
+
+
 
 async def congrats_new_pet(msg, name, specs):
     await msg.channel.send (f'''Awww {name}, that's a cute name! now you will need to take care of your new {specs}.
@@ -55,22 +70,40 @@ check_joy: is to check if your {specs} is joyfull  or need your attention. remeb
         await msg.channel.send("fire_blast: to make your pokemon blast a fire")
 
 async def Call (msg):
+    
     order = msg.content.split(" ")[1]
     name = pet_name_create (msg)
+    
     if not msg.author.id in all_user:
         new_user = users.User(user_id = msg.author.id)
         all_user[msg.author.id]=new_user
+        
+        
     elif msg.author.id in all_user:
         new_user = all_user[msg.author.id]
+        
+        
     if order == "start":
         print("start")
         await start_game(msg)
+        
+        
     elif order == "create":
         # !pet create specs gender name 
+        
+        if not check_input(msg.content):  # validate the input, if not checks for "falsy" values
+            await msg.channel.send("Check input! follow the format: !pet create species gender name")
+        return
+        
+        
         specs = msg.content.split(" ")[2]
+        
         gender = msg.content.split(" ")[-2]
+        
         print(new_user)
+        
         output,con = new_user.Buy(user_id = msg.author.id)
+        
         await msg.channel.send(output)
         try:
             if con == 0:
@@ -81,34 +114,49 @@ async def Call (msg):
         except: pass
 
     elif order == "marry":
+        
         second_pet = msg.content.split(" ")[-1]
+        
         first_pet = msg.content.split(" ")[2]
+        
         first_pet = current_pets[msg.author.id][first_pet]
         second_pet = current_pets[msg.author.id][second_pet]
         output = first_pet.Marry(second_pet)
+        
         await msg.channel.send(output)
 
     elif order == "give_birth":
+        
         ####!pet give_birth (name) from first_pet secon_pet
+        
         second_pet = msg.content.split(" ")[-1]
+        
         first_pet = msg.content.split(" ")[-2]
+        
         name = msg.content.split(" ")[2]
+        
         first_pet = current_pets[msg.author.id][first_pet]
         second_pet = current_pets[msg.author.id][second_pet]
         output, new_pet = first_pet.Give_birth(second_pet,name)
+        
         print('1')
         await msg.channel.send(output)
+        
         if not msg.author.id in current_pets: 
+            
             current_pets[msg.author.id]={}
             print('2')
         current_pets[msg.author.id][name] = new_pet
+        
         print('3')
 
     elif order == "ls":
+        
         if not msg.author.id in current_pets:
             await msg.channel.send(f"You ain't got nothing...really nothing broke bitch")
             return
         await msg.channel.send("your pets are: " + ", ".join(current_pets[msg.author.id].keys()))
+        
     else:
         if not msg.author.id in current_pets or not name in current_pets[msg.author.id]:
             await msg.channel.send(f"You don't own {name}")

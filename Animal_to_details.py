@@ -1,26 +1,38 @@
 import random
 
-def choose_pet (user_input):
-    if user_input.lower() in AnimalsToDetails:
-        return AnimalsToDetails[user_input.lower()]
-    else:
-        print("Invalid pet name")
-        return None
+# def choose_pet (user_input):
+#     if user_input.lower() in AnimalsToDetails:
+#         return AnimalsToDetails[user_input.lower()]
+#     else:
+#         print("Invalid pet name")
+#         return None
     
-# def roll_for_pet():
-#     if
-
-
-#     # common_pets = [pet for pet, details in AnimalsToDetails.items() if details[0] == "common"]
-#     # rare_pets = [pet for pet, details in AnimalsToDetails.items() if details[0] == "rare"]
-#     # very_rare_pets = [pet for pet, details in AnimalsToDetails.items() if details[0] == "very rare"]
+def roll_for_pet():
+    common_pets = []
+    rare_pets = []
+    very_rare_pets = []
     
-#     all_non_legendary_pets = common_pets + rare_pets + very_rare_pets
-#     return random.choice(all_non_legendary_pets)
+    for pet, details in AnimalsToDetails.items():
+        if details[0] == "common":
+            common_pets.append(pet)
+        elif details[0] == "rare":
+            rare_pets.append(pet)
+        elif details[0] == "very rare":
+            very_rare_pets.append(pet)
+            
+    non_legendary_pets = common_pets + rare_pets + very_rare_pets
+    return random.choice(non_legendary_pets)
+        
 
 def rando_marry_gen():
     all_pets = list(AnimalsToDetails.keys())
     return random.choice(all_pets)
+
+def choose_pet_based_on_marriage(is_married):
+    if is_married:
+        return rando_marry_gen()
+    else:
+        return roll_for_pet()
 
 listOfAbilities = [
     # for now this is all i can think of but later i can just add more
