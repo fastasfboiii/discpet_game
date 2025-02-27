@@ -1,5 +1,5 @@
 import random
-#FUCK Ahmed
+#ahmed test
 # def choose_pet (user_input):
 #     if user_input.lower() in AnimalsToDetails:
 #         return AnimalsToDetails[user_input.lower()]
