@@ -8,6 +8,7 @@ from users import *
 import users
 import asyncio
 import os
+from work import *
 
 if __name__ == "__main__" and hasattr(asyncio, 'WindowsSelectorEventLoopPolicy'):
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
@@ -28,7 +29,7 @@ async def start_game(msg):
     await msg.channel.send (f'''Welcome {msg.author.name}, This is Wonder land. in wonder land you can create, raise, sell, buy pets and a lot more...
 let's start with species, you can choose Dragon, Cat, Dog and Bird. each animal have a special sound and they can marry each other to create a new animal
 Dragon can growl, pokemon can create a fire blast, cat can mewo, dog can bark and bird can sing. to create a pet you will need to type:
-!pet create species gender name 
+!pet create species gender name and if you want to work you can type !pet work.
 REMEMBER you can't give two pet's the same name. be createive you mo**** f*****....sorry that was rude just be createive OK???''')
 
 def pet_name_create (msg):
@@ -86,8 +87,11 @@ async def Call (msg):
     if order == "start":
         print("start")
         await start_game(msg)
-        
-        
+
+    elif order == "work":
+        # !pet work
+        start_work (msg.author.name, self.bal)
+
     elif order == "create":
         # !pet create specs gender name 
         
