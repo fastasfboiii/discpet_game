@@ -8,7 +8,7 @@ from users import *
 import users
 import asyncio
 import os
-from work import *
+from work import start_work
 
 if __name__ == "__main__" and hasattr(asyncio, 'WindowsSelectorEventLoopPolicy'):
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
@@ -89,8 +89,8 @@ async def Call (msg):
         await start_game(msg)
 
     elif order == "work":
-        # !pet work
-        start_work (msg.author.name, self.bal)
+        # !pet work 
+        start_work (self)
 
     elif order == "create":
         # !pet create specs gender name 

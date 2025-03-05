@@ -32,4 +32,4 @@ def time_day_f(x):
 def age_f(x):
     time_day = time_day_f(x)
     age = math.floor(time_day)
-    return age
+    return age    
