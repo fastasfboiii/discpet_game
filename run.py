@@ -29,7 +29,7 @@ async def start_game(msg):
     await msg.channel.send (f'''Welcome {msg.author.name}, This is Wonder land. in wonder land you can create, raise, sell, buy pets and a lot more...
 let's start with species, you can choose Dragon, Cat, Dog and Bird. each animal have a special sound and they can marry each other to create a new animal
 Dragon can growl, pokemon can create a fire blast, cat can mewo, dog can bark and bird can sing. to create a pet you will need to type:
-!pet create species gender name and if you want to work you can type !pet work.
+!pet create species gender name.
 REMEMBER you can't give two pet's the same name. be createive you mo**** f*****....sorry that was rude just be createive OK???''')
 
 def pet_name_create (msg):
@@ -57,6 +57,7 @@ feed: is to feed your {specs}. remember your {specs} needs to be fed every 5 min
 check hunger: is to check on your {specs}'s hunger
 check age: to check how old is your {specs} now
 play: to play with your {specs}
+work: to make your {specs} work and earn money
 check_joy: is to check if your {specs} is joyfull  or need your attention. remeber your {specs} will get bored after 3 hours''')
 
     if specs == 'cat':
@@ -89,7 +90,7 @@ async def Call (msg):
         await start_game(msg)
 
     elif order == "work":
-        # !pet work 
+        # !pet work specs  
         start_work (self)
 
     elif order == "create":
