@@ -9,6 +9,7 @@ import users
 import asyncio
 import os
 from work import start_work
+from time_calc import work_timer_f
 
 if __name__ == "__main__" and hasattr(asyncio, 'WindowsSelectorEventLoopPolicy'):
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
@@ -92,6 +93,7 @@ async def Call (msg):
     elif order == "work":
         # !pet work specs  
         start_work (self)
+        work_timer_f (timer)
 
     elif order == "create":
         # !pet create specs gender name 

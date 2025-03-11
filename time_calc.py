@@ -1,5 +1,6 @@
 from time import time
 import math
+timer = 10
 def genesis_f(x):
     genesis = int(time())
     return genesis
@@ -32,4 +33,8 @@ def time_day_f(x):
 def age_f(x):
     time_day = time_day_f(x)
     age = math.floor(time_day)
-    return age    
+    return age   
+def work_timer_f (timer) :
+    while timer >= 1 :
+        timer -= 1
+    print (f"Sorry, You can't work now, You need to wait few secound to work again")
