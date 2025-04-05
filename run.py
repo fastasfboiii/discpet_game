@@ -10,6 +10,7 @@ import asyncio
 import os
 from work import start_work
 from time_calc import work_timer_f
+from token import token
 
 if __name__ == "__main__" and hasattr(asyncio, 'WindowsSelectorEventLoopPolicy'):
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
@@ -206,4 +207,4 @@ async def on_message(message):
 
 
 print("client running, open discord ...")
-client.run('MTMyMTgzMDUwNzY4Nzk2ODg5MA.GmRF2W.VzPSM3pJ-LIrscT9OqWQkYwx81wBstSfoBkXPg')
+client.run(token)
